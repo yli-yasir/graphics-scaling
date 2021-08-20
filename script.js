@@ -10,7 +10,7 @@ window.onresize = () => {
   // This means that the width is 1.7 times the length of the height.
   // e.g. height = 1 , width= 1.7
   //      height = 5, width = 5 * 1.7 = 8.5
-  // This relationship must be kept in order to maintain the aspect ratio.
+  // This relationship must be kept in order to maintain the aspect ratio of our canvas.
 
   // Now, lets get the aspect ratio of the screen we are trying to display our canvas on.
   const screenWidth = window.innerWidth;
@@ -22,7 +22,7 @@ window.onresize = () => {
 
   if (screenAspectRatio > canvasAspectRatio) {
     // Assuming the screen's aspect ratio is 1.8 and the canvas aspect ratio is 1.7 ...
-    // This means the target's screen width is 1.8 times its height.
+    // This means the target screen's width is 1.8 times its height.
     // This means that the canvas's width is 1.7 times its height.
     // The width of the screen's width in relation to its height is bigger than
     // the width of the canvas's width in relation to its height.
@@ -43,10 +43,10 @@ window.onresize = () => {
     // and then calculate the height based on the width because the height will overflow.
     // screenHeight = screenWidth / screenAspectRatio
     // canvasHeight = screenWidth / canvasAspectRatio
-    // Since screen width is divided by a larger value, it will always be smaller than canvas Height
+    // Since screen width is divided by a larger value, it will always be smaller than canvas height
     // as a result the canvas height will overflow and clip through the screen.
     // screenHeight < canvasDisplayHeight
-    // e.g. screenWidth / 1.8 > screenWidth / 1.7
+    // e.g. screenWidth / 1.8 < screenWidth / 1.7
   } else {
     // If the screen's aspect ratio is smaller than than the canvas's aspect ratio...
     // Assuming the screen's aspect ratio is 1.6 and the canvas aspect ratio is 1.7 ...
@@ -62,7 +62,7 @@ window.onresize = () => {
     // canvasHeight = screenWidth / canvasAspectRatio
     // Since screen width is divided by a smaller value, screen height  will always be larger than canvas Height
     // screenHeight > canvasDisplayHeight
-    // e.g. screenWidth / 1.6 > screenHeight / 1.7
+    // e.g. screenWidth / 1.6 > screenWidth / 1.7
     canvas.style.width = screenWidth;
     canvas.style.height = screenWidth / canvasAspectRatio;
   }
